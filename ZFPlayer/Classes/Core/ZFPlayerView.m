@@ -64,15 +64,20 @@
     if (videoHeight == 0) return;
     CGFloat screenScale = min_view_w/min_view_h;
     CGFloat videoScale = videoWidth/videoHeight;
-    if (screenScale > videoScale) {
-        CGFloat height = min_view_h;
-        CGFloat width = height * videoScale;
-        playerViewSize = CGSizeMake(width, height);
-    } else {
-        CGFloat width = min_view_w;
-        CGFloat height = width / videoScale;
-        playerViewSize = CGSizeMake(width, height);
-    }
+    
+    CGFloat width = min_view_w;
+    CGFloat height = width / videoScale;
+    playerViewSize = CGSizeMake(width, height);
+    
+//    if (screenScale > videoScale) {
+//        CGFloat height = min_view_h;
+//        CGFloat width = height * videoScale;
+//        playerViewSize = CGSizeMake(width, height);
+//    } else {
+//        CGFloat width = min_view_w;
+//        CGFloat height = width / videoScale;
+//        playerViewSize = CGSizeMake(width, height);
+//    }
     
     if (self.scalingMode == ZFPlayerScalingModeNone || self.scalingMode == ZFPlayerScalingModeAspectFit) {
         min_w = playerViewSize.width;
